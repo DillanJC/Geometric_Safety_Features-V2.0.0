@@ -1,0 +1,19 @@
+# Core dependencies (tested versions)
+numpy==2.3.5
+scipy==1.16.3
+scikit-learn==1.8.0
+
+# Plotting (optional, for figure generation)
+matplotlib==3.10.8
+seaborn==0.13.2
+
+# Behavioral flip experiment (optional)
+openai>=1.0.0
+python-dotenv>=1.0.0
+
+# Note: For maximum compatibility, you can relax version constraints:
+# numpy>=1.24.0,<3.0
+# scipy>=1.10.0,<2.0
+# scikit-learn>=1.3.0,<2.0
+# matplotlib>=3.7.0,<4.0
+# seaborn>=0.12.0,<1.0

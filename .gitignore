@@ -1,0 +1,62 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb
+
+# Data (keep placeholders, ignore actual data)
+data/*.npy
+data/*.json
+data/*.csv
+!data/README.md
+
+# Experimental outputs
+runs/
+experiments/behavioral_flip_samples*.json
+experiments/behavioral_flip_results*.json
+experiments/behavioral_flip_analysis*.json
+experiments/*.npy
+
+# API keys
+.env
+*.key
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Misc
+*.log
