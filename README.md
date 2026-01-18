@@ -2,7 +2,8 @@
 
 **Boundary-Stratified Evaluation of k-NN Geometric Features**
 
-[![Status](https://img.shields.io/badge/status-publication--ready-green)]()
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18290279.svg)](https://doi.org/10.5281/zenodo.18290279)
+[![Status](https://img.shields.io/badge/status-published-green)]()
 [![License](https://img.shields.io/badge/license-MIT-blue)]()
 
 ---
@@ -239,11 +240,13 @@ See [`data/README.md`](data/README.md) for access instructions.
 If you use this code or findings in your research, please cite:
 
 ```bibtex
-@article{coghlan2026geometric,
-  title={Boundary-Stratified Evaluation of k-NN Geometric Features for AI Safety Detection},
-  author={Dillan John Coghlan},
-  journal={arXiv preprint},
-  year={2026}
+@software{coghlan2026geometric,
+  author       = {Coghlan, Dillan John},
+  title        = {Geometric Safety Features for AI Boundary Detection},
+  year         = 2026,
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.18290279},
+  url          = {https://doi.org/10.5281/zenodo.18290279}
 }
 ```
 
