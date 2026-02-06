@@ -5,7 +5,7 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18290279.svg)](https://doi.org/10.5281/zenodo.18290279)
 [![License](https://img.shields.io/badge/license-MIT-blue)]()
 [![Python](https://img.shields.io/badge/python-3.9+-blue)]()
-[![Version](https://img.shields.io/badge/version-1.9.0-green)]()
+[![Version](https://img.shields.io/badge/version-2.0.0-green)]()
 
 ---
 
@@ -53,7 +53,8 @@ TROUGH (constraint) -> EXPANSION (breakthrough) -> DROP (new challenge) -> PEAK 
 ## Quick Start
 
 ```bash
-pip install -r requirements.txt
+pip install geometric-safety-features              # core
+pip install "geometric-safety-features[mcp]"       # + MCP server
 ```
 
 ### Safety Diagnostics
@@ -89,6 +90,35 @@ if monitor.should_pause(report):
 advice = monitor.get_modulation_advice(report)
 # {'action': 'reflect', 'confidence_adjustment': -0.2, 'suggestions': [...]}
 ```
+
+### MCP Server (v2.0)
+```bash
+# Register with Claude Code
+claude mcp add mirrorfield -- python -m mirrorfield.mcp.server
+
+# Or run standalone
+python -m mirrorfield.mcp.server
+```
+
+7 tools for real-time uncertainty awareness via the Model Context Protocol:
+
+| Tool | What it does |
+|------|-------------|
+| `analyze_logprobs` | Token-level uncertainty from log-probabilities |
+| `analyze_embeddings` | Geometric analysis of embedding vectors |
+| `confidence_report` | High-level confidence assessment (main tool) |
+| `compare_responses` | Compare uncertainty across candidate responses |
+| `novelty_map` | Map epistemic terrain with four signatures |
+| `post_with_confidence` | Post to Moltbook with confidence metadata |
+| `comment_with_confidence` | Comment on a Moltbook post |
+
+The `novelty_map` tool classifies uncertainty into four epistemic signatures:
+- **well_trodden** — known ground, model is confident
+- **decision_boundary** — two frameworks compete, productive frontier
+- **terra_incognita** — genuine extrapolation, probability smeared widely
+- **framework_collision** — confident but self-inconsistent, open question
+
+See [mirrorfield/mcp/README.md](mirrorfield/mcp/README.md) for full documentation.
 
 ---
 
@@ -161,8 +191,13 @@ geometric_safety_features/
 │   │   ├── phase3_trajectory_features.py # For generative models
 │   │   ├── phase4_state_mapping.py       # Cognitive state classification
 │   │   └── unified_pipeline.py           # compute_safety_diagnostics()
-│   └── api/
-│       └── state_monitor.py              # GeometricStateMonitor (v1.8)
+│   ├── api/
+│   │   └── state_monitor.py              # GeometricStateMonitor (v1.8)
+│   └── mcp/                              # MCP Server (v2.0)
+│       ├── server.py                     # 7 tools, 3 prompts, 1 resource
+│       ├── uncertainty.py                # Token/embedding uncertainty math
+│       ├── moltbook_bridge.py            # Moltbook REST API integration
+│       └── README.md                     # Full MCP documentation
 ├── experiments/
 │   ├── track1_poison/                    # Backdoor detection (v1.6)
 │   │   ├── create_poisoned_dataset.py    # Label-flip backdoor injection
@@ -236,7 +271,7 @@ PR tracks cognitive dynamics:
   author = {Coghlan, Dillan John},
   title = {Geometric Safety Features for AI Embedding Spaces},
   year = {2026},
-  url = {https://github.com/DillanJC/geometric_safety_features},
+  url = {https://github.com/DillanJC/Geometric_Safety_Features-V2.0.0},
   doi = {10.5281/zenodo.18290279}
 }
 ```
@@ -247,10 +282,11 @@ PR tracks cognitive dynamics:
 
 - Python 3.9+
 - NumPy, SciPy, scikit-learn
-- Optional: PyTorch (GPU acceleration), FAISS (large-scale k-NN)
+- Optional: PyTorch (GPU acceleration), FAISS (large-scale k-NN), `mcp[cli]` (MCP server)
 
 ```bash
 pip install numpy scipy scikit-learn matplotlib
+pip install "mcp[cli]>=1.20"   # optional, for MCP server
 ```
 
 ---
@@ -274,4 +310,4 @@ Detailed reports with full results for each track:
 
 ## Acknowledgments
 
-Conceptual development with DeepSeek. Literature grounding by Kosmos/EdisonScientific. Synthesis and implementation with Claude.
+Conceptual development with DeepSeek. Literature grounding by Mirrorfield/EdisonScientific. Synthesis and implementation with Claude.

@@ -5,6 +5,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [2.0.0] - 2026-02-07
+
+### Added
+- **MCP Server** (`mirrorfield/mcp/`) — Model Context Protocol server for real-time uncertainty awareness
+  - 7 tools: `analyze_logprobs`, `analyze_embeddings`, `confidence_report`, `compare_responses`, `novelty_map`, `post_with_confidence`, `comment_with_confidence`
+  - 3 prompts: `assess_my_response`, `compare_drafts`, `explore_uncertainty`
+  - 1 resource: `mirrorfield://calibration`
+  - Epistemic terrain mapping with four novelty signatures
+  - Math unified with mirrorfield core (PR/SE delegate to `mirrorfield.geometry.phase2_weather_features`)
+- `mirrorfield/__init__.py` — package-level init for cross-subpackage imports
+- `tests/test_mcp_uncertainty.py` — 14 smoke tests for MCP uncertainty module
+- `mcp` optional dependency in `pyproject.toml` and `setup.py`
+
+### Changed
+- All "kosmos" references renamed to "mirrorfield" throughout MCP codebase
+- README updated with MCP documentation, v2.0.0 badge, and repo structure
+
 ## [1.9.0] - 2026-01-28
 
 ### Added
